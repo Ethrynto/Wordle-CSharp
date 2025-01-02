@@ -7,6 +7,8 @@
     depends_on:
       db:
         condition: service_healthy
+    ports: 
+      - "2426:8080"
 
   db:
     container_name: wordle_db
@@ -17,7 +19,7 @@
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}" ]
-      interval: 10s
+      interval:  10s
       timeout: 5s
       retries: 5
     volumes:
