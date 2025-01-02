@@ -1,0 +1,21 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  wordle.api:
+    build:
+      context: "D:\\Development\\.NET\\Wordle"
+      dockerfile: "Wordle.API/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net9.0/Wordle.API.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "wordle.api:dev"
+    ports: []
+    volumes:
+    - "D:\\Development\\.NET\\Wordle\\Wordle.API:/app:rw"
+    - "D:\\Development\\.NET\\Wordle:/src:rw"
+    - "C:\\Users\\Ethrynto\\.nuget\\packages:/home/app/.nuget/packages"
+    working_dir: "/app"
